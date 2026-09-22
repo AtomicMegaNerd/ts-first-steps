@@ -123,6 +123,21 @@ are not okay.
 > `variable?: mytype` is equivalent to `mytype | undefined`
 > So it allows the variable to be undefined
 
+#### `?.`
+
+- Works with `null` or `undefined`
+- Returns `undefined` if properties or methods in the chain do not exist
+
+See
+[Optional Chaining ?.](https://github.com/AtomicMegaNerd/js-course-v3/tree/main/control-flow#optional-chaining-)
+
+#### `??`
+
+-- Only considers `null` and `undefined` as falsy
+
+See
+[Nullish Coalescing](https://github.com/AtomicMegaNerd/js-course-v3/tree/main/control-flow#nullish-coalescing-)
+
 ```ts
 interface User {
   name: string
@@ -151,3 +166,33 @@ logUser(rcd)
 ```
 
 ---
+
+## Union Types
+
+```ts
+let numOrStr: number | string
+numOrStr = 3
+numOrStr = "hello"
+
+let x: number | null
+x = 4
+x = null
+
+// ?. also works with null
+let strOrNull: string | null
+strOrNull = "rofl"
+let upper = strOrNull?.toUpperCase()
+```
+
+<!-- prettier-ignore-->
+> [!NOTE]
+> Arrays with union types need parenthesis
+
+```ts
+// use parens with union types with Arrays
+const items: (number | string)[] = ["1", 2, "three", 4]
+
+for (const item of items) {
+  console.log(item)
+}
+```
