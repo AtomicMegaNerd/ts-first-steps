@@ -208,3 +208,17 @@ for (const item of items2) {
   console.log(item)
 }
 ```
+
+## Deferred Let Bindings
+
+```ts
+const printStr = (str: string) => console.log(str)
+
+let s: string // OK we can define later
+
+printStr(s) // Error: Variable 's' is used before being assigned
+
+s = "has a value"
+
+printStr(s) // OK
+```
