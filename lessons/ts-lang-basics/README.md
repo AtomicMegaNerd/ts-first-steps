@@ -189,10 +189,22 @@ let upper = strOrNull?.toUpperCase()
 > Arrays with union types need parenthesis
 
 ```ts
-// use parens with union types with Arrays
+// use parens for Arrays where the elements are union types
 const items: (number | string)[] = ["1", 2, "three", 4]
 
 for (const item of items) {
+  console.log(item)
+}
+
+type StrOrNum = string | number
+
+// Type alias also works fine
+const items2: StrOrNum[] = ["1", 2, "three", 4] // use parens with union types with Arrays
+for (const item of items) {
+  console.log(item)
+}
+
+for (const item of items2) {
   console.log(item)
 }
 ```
