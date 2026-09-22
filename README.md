@@ -13,6 +13,8 @@ known as Front-End Masters).
 
 ## Running TypeScript in Node
 
+Depending on the version of Node being used, the `tsx` tool may be needed.
+
 <!-- prettier-ignore -->
 > [!NOTE]
 > The tool `tsx` is not to confused with `.tsx` files from React + TypeScript
@@ -22,5 +24,11 @@ This app `tsx` runs TypeScript code in Node.js:
 [tsx on GitHub](https://github.com/privatenumber/tsx)
 
 ```fish
-tsx $PATH_TO_TS_FILE
+tsx $PATH_TO_TS_SRC
+```
+
+To re-run each time the file is modified:
+
+```fish
+tsx --watch $PATH_TO_TS_SRC
 ```
