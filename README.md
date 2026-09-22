@@ -6,3 +6,7 @@ known as Front-End Masters).
 - [Course Website](https://anjana.dev/typescript-first-steps)
 - [Course Repo](https://github.com/vakila/typescript-first-steps)
 - [Intro Slides](https://anjana.dev/typescript-first-steps/0-intro/slides)
+
+## Typescript Playground
+
+[TypeScript Playground](https://www.typescriptlang.org/play/)
