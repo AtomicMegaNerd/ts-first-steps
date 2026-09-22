@@ -12,11 +12,6 @@ type Event = {
   rsvps?: Rsvp[]
 }
 
-type EventDate = {
-  dateString: string
-  isPast: boolean
-}
-
 const events: Event[] = [
   {
     id: 1,
@@ -42,7 +37,7 @@ function getEventById(id: number): Event | null {
 }
 
 // Should return an object with dateString & isPast
-function getEventDate(event: Event): EventDate {
+function getEventDate(event: Event): { dateString: string; isPast: boolean } {
   const eventDate = new Date(event.date)
   const dateString = eventDate.toDateString()
   const isPast = eventDate < new Date()
