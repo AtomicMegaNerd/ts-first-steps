@@ -12,3 +12,5 @@ The type system has strange holes in it that are not ideal.
 ---
 
 ## Why Typescript?
+
+We can avoid writing code that won't run in the first place.
