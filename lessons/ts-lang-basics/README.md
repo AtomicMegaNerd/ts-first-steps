@@ -4,7 +4,10 @@
 
 ## Typescript Syntax
 
+This module explores basic syntax
+
 [TypeScript Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
+[Typescript Playground](https://www.typescriptlang.org/play/)
 
 ### Primitive Types
 
