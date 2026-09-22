@@ -114,7 +114,7 @@ console.log(user)
 ```
 
 Of course TS will enforce the types on the fields. Also if `strict` mode is on missing properties
-are not okay.
+are not okay. See [Type Alias](#type-alias)
 
 ### Optional properties
 
@@ -211,6 +211,8 @@ for (const item of items2) {
 
 ## Deferred Let Bindings
 
+Typescript in `strict` mode does not let you use a variable that is unitialized.
+
 ```ts
 const printStr = (str: string) => console.log(str)
 
@@ -221,4 +223,48 @@ printStr(s) // Error: Variable 's' is used before being assigned
 s = "has a value"
 
 printStr(s) // OK
+```
+
+## Type Narrowing, Guards, and Aliases
+
+This is a basic type guard. Type narrowing means that in each branch we narrow the type down to its
+concrete type (`null` or `HTMLElement`)
+
+```ts
+let elem: HTMLElement | null
+elem = document.getElementById("might-exist")
+
+// Type guard
+if (elem === null) {
+  console.log("No element found")
+} else {
+  elem.addEventListener("click", () => {
+    console.log("this will work")
+  })
+}
+
+// This ?. is another way to do it
+elem?.addEventListener("click", () => {
+  console.log("this will work")
+})
+```
+
+## Type Alias
+
+<!-- prettier-ignore -->
+>[!NOTE]
+> **PascalCase** is the convention for naming types in TypeScript.
+
+```ts
+type LogLevel = "debug" | "info" | "warn" | "error"
+
+// Type alias for an object
+// This is different than using an interface. Will have to explore the difference.
+type User = {
+  id: number
+  username: string
+  fullname?: string
+}
+
+const user1: User = { id: 1, username: "rcd" } // OK
 ```
