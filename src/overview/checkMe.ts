@@ -1,6 +1,18 @@
 // Exercise 1
 
-let language = {
+interface Language {
+  name: string
+  officialName: string
+  released: number
+  creator: string
+  company: string
+}
+
+const logLanguage = (lang: Language) => {
+  console.log(lang)
+}
+
+const js: Language = {
   name: "JavaScript",
   officialName: "ECMAScript",
   released: 1995,
@@ -8,11 +20,7 @@ let language = {
   company: "Netscape",
 }
 
-console.log(language)
-console.log(language.officialName)
-console.log(language.creator)
-
-language = {
+const ts: Language = {
   name: "TypeScript",
   officialName: "TypeScript",
   released: 2012,
@@ -20,7 +28,5 @@ language = {
   company: "Microsoft",
 }
 
-console.log(language)
-console.log(language.released)
-console.log(language.company)
-console.log(language.officialName)
+logLanguage(js)
+logLanguage(ts)
