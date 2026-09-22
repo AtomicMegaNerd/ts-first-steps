@@ -115,18 +115,32 @@ are not okay.
 
 ### Optional properties
 
+<!-- prettier-ignore-->
+> [!NOTE]
+> `variable?: type` is equivalent to `type | undefined`
+> So it allows the variable to be undefined
+
 ```ts
 interface User {
   name: string
-  company?: string
+  company?: string // string | undefined
   id: number
 }
 
+// This will handle either case just fine
 const logUser = (u: User) => {
   console.log(u)
 }
 
-let rcd: User = { name: "Chris", id: 9001 }
+// We can declare the object without the optional field
+const rcd: User = { name: "Chris", id: 9001 } // OK
+
+let uppercase: string | undefined
+// uppercase = rcd.company.toUpperCase() // Error, as the field may be undefined
+uppercase = rcd.company?.toUpperCase() // OK
+
+// Use ?? with "" to make it empty string when the property is missing
+const upper: string = rcd.company?.toUpperCase() ?? "" // OK
 
 logUser(rcd)
 rcd.company = "Megaparsec Industries"
