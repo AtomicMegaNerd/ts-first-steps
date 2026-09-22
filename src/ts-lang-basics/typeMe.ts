@@ -65,6 +65,7 @@ const getEventDetails = (eventId: number): string => {
   }
 }
 
+// Test harness
 function test() {
   const results = [
     {
