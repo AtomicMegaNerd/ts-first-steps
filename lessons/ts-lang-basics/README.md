@@ -1,13 +1,13 @@
-# Typescript Language Basics
+# TypeScript Language Basics
 
 ---
 
-## Typescript Syntax
+## TypeScript Syntax
 
 This module explores basic syntax
 
 [TypeScript Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
-[Typescript Playground](https://www.typescriptlang.org/play/)
+[TypeScript Playground](https://www.typescriptlang.org/play/)
 
 ### Primitive Types
 
@@ -36,7 +36,7 @@ let nothing: null = null
 
 ### Literal Types
 
-We can tell Typescript that instance of the type has to contain one of the specified values:
+We can tell TypeScript that instance of the type has to contain one of the specified values:
 
 ```ts
 // The variable must be one of the specified values
@@ -211,7 +211,7 @@ for (const item of items2) {
 
 ## Deferred Let Bindings
 
-Typescript in `strict` mode does not let you use a variable that is unitialized.
+TypeScript in `strict` mode does not let you use a variable that is unitialized.
 
 ```ts
 const printStr = (str: string) => console.log(str)
@@ -271,4 +271,13 @@ const user1: User = { id: 1, username: "rcd" } // OK
 
 ---
 
-## Migrating JavaScript to Typescript
+## Migrating JavaScript to TypeScript
+
+[Exercise 2](../../src/ts-lang-basics/README.md)
+
+---
+
+## Compiling TypeScript
+
+Running `tsc` will compile TypeScript to JavaScript. In this project we store the JS files in the
+`dist` folder.

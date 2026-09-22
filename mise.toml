@@ -9,7 +9,7 @@ pre-commit = "latest"
 # emmet-language-server
 "npm:@olrtg/emmet-language-server" = "latest"
 
-# Typescript
+# TypeScript
 "npm:typescript" = "latest"
 # For running TypeScript in Node
 "npm:tsx" = "latest"
