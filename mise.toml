@@ -11,6 +11,8 @@ pre-commit = "latest"
 
 # Typescript
 "npm:typescript" = "latest"
+# For running TypeScript in Node
+"npm:tsx" = "latest"
 
 # The Rust based live-server is safer and faster
 "cargo:live-server" = "latest"

@@ -268,3 +268,7 @@ type User = {
 
 const user1: User = { id: 1, username: "rcd" } // OK
 ```
+
+---
+
+## Migrating JavaScript to Typescript
