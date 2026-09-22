@@ -1,7 +1,5 @@
-type Id = string | number
-
 type Rsvp = {
-  user_id: Id
+  user_id: number
 }
 
 type Event = {
@@ -10,7 +8,7 @@ type Event = {
   date: string
   image_url?: string
   description?: string
-  host_id: Id
+  host_id: number
   rsvps?: Rsvp[]
 }
 
@@ -26,7 +24,7 @@ const events: Event[] = [
     date: "2030-11-29",
     image_url: "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=500",
     host_id: 1,
-    rsvps: [{ user_id: 1 }, { user_id: "5" }, { user_id: 3 }],
+    rsvps: [{ user_id: 1 }, { user_id: 5 }, { user_id: 3 }],
   },
   {
     id: 2,
@@ -34,13 +32,13 @@ const events: Event[] = [
     date: "2032-04-01",
     description:
       "Discover the future of event planning at EventExpo 2032. Network with industry leaders, explore cutting-edge technologies, and attend inspiring workshops.",
-    host_id: "3",
+    host_id: 3,
   },
 ]
 
 // Should return an event object, or null if not found
-function getEventById(id: Id): Event | null {
-  return events.filter((e) => String(e.id) === String(id))[0]
+function getEventById(id: number): Event | null {
+  return events.filter((e) => e.id === id)[0]
 }
 
 // Should return an object with dateString & isPast
@@ -61,7 +59,7 @@ const getEventRsvpCount = (event: Event): string => {
 
 // Should return a string with the event's title, date, and rsvps
 // (if the event exists), or the string 'Event not found' (if not)
-const getEventDetails = (eventId: Id): string => {
+const getEventDetails = (eventId: number): string => {
   const event = getEventById(eventId)
   if (event) {
     const { dateString } = getEventDate(event)
