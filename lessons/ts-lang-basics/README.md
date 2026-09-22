@@ -117,7 +117,7 @@ are not okay.
 
 <!-- prettier-ignore-->
 > [!NOTE]
-> `variable?: type` is equivalent to `type | undefined`
+> `variable?: mytype` is equivalent to `mytype | undefined`
 > So it allows the variable to be undefined
 
 ```ts
