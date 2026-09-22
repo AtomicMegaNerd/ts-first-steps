@@ -32,3 +32,7 @@ To re-run each time the file is modified:
 ```fish
 tsx --watch $PATH_TO_TS_SRC
 ```
+
+<!-- prettier-ignore -->
+> [!WARNING]
+> `tsx` does not do the type checking that `tsc` does.

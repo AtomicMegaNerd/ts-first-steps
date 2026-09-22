@@ -32,7 +32,8 @@ const events: Event[] = [
 ]
 
 // Should return an event object, or null if not found
-function getEventById(id: number): Event | null {
+function getEventById(id: number): Event | undefined {
+  // Notice that type can do type inference
   return events.filter((e) => e.id === id)[0]
 }
 
@@ -46,7 +47,8 @@ function getEventDate(event: Event): { dateString: string; isPast: boolean } {
 
 // Should return a string like '5 going' or '0 went'
 const getEventRsvpCount = (event: Event): string => {
-  const count: number = event.rsvps?.length ?? 0
+  // Again type inference :-)
+  const count = event.rsvps?.length ?? 0
   const { isPast } = getEventDate(event)
   const text = isPast ? "went" : "going"
   return [count, text].join(" ")
