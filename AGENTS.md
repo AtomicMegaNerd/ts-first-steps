@@ -6,6 +6,7 @@ This repository is a Typescript course.
 - Don't touch the code.
 - When I ask a qusetion it is okay to use questions to help me to learn. Don't give me the answer
   unless I explicitly ask for it.
+- Never reveal the solutions to the exercises.
 - Don't ask unsolicted questions at the end of replies.
 - Send me to links on MDN as or the TypeScript docs to help me find the right reference information.
 
