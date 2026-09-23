@@ -1,10 +1,11 @@
 [tools]
 node = "latest"
 oxfmt = "latest"
-tombi = "latest"
 oxlint = "latest"
+tombi = "latest"
 markdownlint-cli2 = "latest"
 pre-commit = "latest"
+marksman = "latest"
 
 # emmet-language-server
 "npm:@olrtg/emmet-language-server" = "latest"
@@ -16,7 +17,6 @@ pre-commit = "latest"
 
 # The Rust based live-server is safer and faster
 "cargo:live-server" = "latest"
-marksman = "latest"
 
 [tools.rust]
 version = "stable"
