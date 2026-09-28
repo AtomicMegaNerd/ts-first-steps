@@ -25,3 +25,12 @@ Typescript (.ts) -> tsc -> JavaScript (.js)
 - `--checkJs` - Runs the check on vanilla JavaScript (`.js`) files (will still emit JS btw).
 
 ---
+
+## Compiler Targets
+
+```fish
+tsc --target $TARGET
+```
+
+Target is the version of JS to use as the target language. For TypeScript v7 `es2025` is the
+default.
