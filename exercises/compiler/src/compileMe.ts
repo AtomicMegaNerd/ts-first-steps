@@ -1,7 +1,7 @@
 type Id = number
 
 interface HasId {
-  id: Id // declare this type!
+  id: Id
 }
 
 interface User extends HasId {
