@@ -36,3 +36,17 @@ tsx --watch $PATH_TO_TS_SRC
 <!-- prettier-ignore -->
 > [!WARNING]
 > `tsx` does not do the type checking that `tsc` does.
+
+## Lessons
+
+- [Introduction](./lessons/introduction/README.md)
+- [Overview](./lessons/overview/README.md)
+- [TypeScript Language Basics](./lessons/ts-lang-basics/README.md)
+- [TypeScript Compiler](./lessons/ts-compiler/README.md)
+- [Interfaces and Generics](./lessons/interfaces-and-generics/README.md)
+
+## Exercises
+
+- [Overview](./exercises/overview/README.md)
+- [TypeScript Language Basics](/exercises/ts-lang-basics/README.md)
+- [TypeScript Compiler](./exercises/compiler/README.md)
