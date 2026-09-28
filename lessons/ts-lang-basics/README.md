@@ -273,7 +273,7 @@ const user1: User = { id: 1, username: "rcd" } // OK
 
 ## Migrating JavaScript to TypeScript
 
-[Exercise 2](../../src/ts-lang-basics/README.md)
+[Exercise 2](../../exercises/ts-lang-basics/README.md)
 
 ---
 
