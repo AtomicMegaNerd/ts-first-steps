@@ -50,3 +50,7 @@ tsx --watch $PATH_TO_TS_SRC
 - [Overview](./exercises/overview/README.md)
 - [TypeScript Language Basics](/exercises/ts-lang-basics/README.md)
 - [TypeScript Compiler](./exercises/compiler/README.md)
+
+## Tools
+
+- [Vitest](https://vitest.dev/)
