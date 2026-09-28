@@ -46,7 +46,7 @@ function wave(): string {
   return ":wave:"
 }
 
-// Typescript adds types to the Promise using generics (more to come)
+// Typescript adds string as a generic type parameter to the Promise (more to come)
 async function asyncWave(): Promise<string> {
   return ":wave:"
 }
