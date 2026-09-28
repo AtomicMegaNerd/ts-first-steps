@@ -2,7 +2,7 @@
 
 The steps below assume you have a terminal open in the `2-annotations/exercise/` directory.
 
-```zsh
+```fish
 cd 2-annotations/exercise/
 ```
 
@@ -14,7 +14,7 @@ Read through the file to understand what's going on and how the code is expected
 
 Run the file to see what happens:
 
-```zsh
+```fish
 node typeMe.js
 ```
 
@@ -33,13 +33,13 @@ but for full TS support we will use the library [`tsx`](https://tsx.is/) to run 
 
 Install `tsx` globally:
 
-```zsh
+```fish
 npm i -g tsx
 ```
 
 Then, use `tsx` to run the script:
 
-```zsh
+```fish
 tsx typeMe.ts
 ```
 
@@ -48,7 +48,7 @@ anything... yet!
 
 To automatically re-run the script each time you save new edits, run `tsx` in `watch` mode:
 
-```zsh
+```fish
 tsx --watch typeMe.ts
 ```
 
@@ -96,7 +96,7 @@ check like `tsc`!
 
 So let's make sure our (fixed, running) TS code checks out with `tsc`:
 
-```zsh
+```fish
 tsc --strict typeMe.ts
 ```
 

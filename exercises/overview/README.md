@@ -2,7 +2,7 @@
 
 The steps below assume you have a terminal open in the `1-javascript/exercise/` directory.
 
-```zsh
+```fish
 cd 1-javascript/exercise/
 ```
 
@@ -10,13 +10,13 @@ cd 1-javascript/exercise/
 
 Use `npm` to install the `typescript` package globally:
 
-```zsh
+```fish
 npm i -g typescript
 ```
 
 Then, verify the installation by checking the version number:
 
-```zsh
+```fish
 tsc --version
 ```
 
@@ -26,7 +26,7 @@ This should print `Version 5.9.2` or similar, if TS was successfully installed.
 
 Run the `tsc` compiler on `checkMe.js` with these optional settings:
 
-```zsh
+```fish
 tsc --checkJs --noEmit checkMe.js
 ```
 
@@ -34,7 +34,7 @@ What errors does TS find?
 
 Now try running the typechecker again, but with the `--strict` option:
 
-```zsh
+```fish
 tsc --checkJs --noEmit --strict checkMe.js
 ```
 
