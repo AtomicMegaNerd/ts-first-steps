@@ -54,3 +54,29 @@ async function asyncWave(): Promise<string> {
 const waveStr = wave()
 const waveStr2 = await asyncWave()
 ```
+
+## Generics
+
+This is pretty straightforward:
+
+```ts
+// T is the type variable
+type Nullable<T> = T | null
+
+interface User {
+  username: string
+  id: number
+}
+
+let x: Nullable<number> = 4
+let y: Nullable<string> = null
+let z: Nullable<string> = "hello"
+let obj: Nullable<User> = { username: "Chris", id: 4 }
+// Object literals are fine, wow
+let wow: Nullable<{ name: string }> = null
+
+console.log(x)
+console.log(y)
+console.log(z)
+console.log(obj)
+```
