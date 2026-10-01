@@ -197,3 +197,39 @@ const todoInfo: TodoInfo = {
 
 todoInfo
 ```
+
+## `any` TYpe and `@ts-ignore`
+
+This let's use re-assign any type to a variable like we are in JS:
+
+```ts
+let roflsauce: any = "whatever"
+roflsauce = 5
+roflsauce.toUpperCase() // Runtime error, TS can no longer help us
+```
+
+### `noImplicitAny`
+
+When this option is enabled we don't let Typescript fall back to `any` when it cannot infer the type
+of a parameter to a function:
+
+```ts
+// Error if noImplicitAny is enabled
+function fn(s) {
+  console.log(s.subtr(3))
+}
+fn(42)
+```
+
+You can still use an explicit `any`.
+
+### `@ts-ignore`
+
+This tells the compiler to ignore all type errors on the next line:
+
+```ts
+// @ts-ignore
+function fn(s) {
+  console.log(s.subtr(3))
+}
+```
