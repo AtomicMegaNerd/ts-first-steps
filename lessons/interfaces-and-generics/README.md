@@ -57,6 +57,8 @@ const waveStr2 = await asyncWave()
 
 ## Generics
 
+See [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+
 This is pretty straightforward:
 
 ```ts
@@ -80,3 +82,37 @@ console.log(y)
 console.log(z)
 console.log(obj)
 ```
+
+### Utility Types
+
+Typescript has a bunch of utility types that are generic.
+
+#### Readonly
+
+Makes the objects fields immutable (shallow though does not nest).
+
+```ts
+interface User {
+  username: string
+  id: number
+}
+
+const fixed: Readonly<User> = { username: "rcd", id: 3 }
+fixed.username = "amn" // NOT OK, this object is Read Only
+```
+
+This is shorthand for:
+
+```ts
+interface User {
+  readonly username: string
+  readonly id: number
+}
+```
+
+<!-- prettier-ignore -->
+> [!NOTE]
+> `Readonly<T>` and `readonly` for fields are shallow. They don't nest the read only to fields
+> of nested types.
+
+Great! We can make immutable data structures in Typescript, nice!
