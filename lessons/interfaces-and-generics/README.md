@@ -87,7 +87,9 @@ console.log(obj)
 
 Typescript has a bunch of utility types that are generic.
 
-#### Readonly
+[Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
+
+#### `Readonly<T>`
 
 Makes the objects fields immutable (shallow though does not nest).
 
@@ -116,3 +118,82 @@ interface User {
 > of nested types.
 
 Great! We can make immutable data structures in Typescript, nice!
+
+#### `Partial<T>`
+
+Partial makes all properties in an object optional:
+
+```ts
+interface User {
+  username: string
+  id: number
+}
+
+// Partial<User> is equivalent to User2
+interface User2 {
+  username?: string
+  id?: number
+}
+
+const rcd: Partial<User> = { username: "rcd" }
+const idOnly: Partial<User> = { id: 3 }
+
+console.log(rcd)
+console.log(idOnly)
+```
+
+#### `Pick<T>`
+
+This lets you create a new type from the selected fields of the passed in type variable:
+
+```ts
+interface Todo {
+  title: string
+  description: string
+  completed: boolean
+}
+
+// Use a union to define which fields to include
+type TodoPreview = Pick<Todo, "title" | "completed">
+
+const todo: TodoPreview = {
+  title: "Clean room",
+  completed: false,
+}
+
+todo
+```
+
+#### `Omit<T>`
+
+This lets you create a new type leaving out the specified properties from the passed in type
+variable:
+
+```ts
+interface Todo {
+  title: string
+  description: string
+  completed: boolean
+  createdAt: number
+}
+
+type TodoPreview = Omit<Todo, "description">
+
+const todo: TodoPreview = {
+  title: "Clean room",
+  completed: false,
+  createdAt: 1615544252770,
+}
+
+todo
+
+// Again we can use a union type for multiple fields
+type TodoInfo = Omit<Todo, "completed" | "createdAt">
+
+const todoInfo: TodoInfo = {
+  title: "Pick up kids",
+  description: "Kindergarten closes at 5pm",
+}
+
+todoInfo
+```
