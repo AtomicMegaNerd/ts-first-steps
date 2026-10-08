@@ -280,8 +280,9 @@ type placeProps = keyof Place
 const idProp: placeProps = "id"
 const locationProp: placeProps = "location"
 
-console.log(idProp) // number
-console.log(locationProp) // string
+// These are the name of the properties
+console.log(idProp) // 'id'
+console.log(locationProp) // 'location'
 
 // Concrete instance
 const place: Place = {
@@ -294,6 +295,7 @@ const place: Place = {
 const idVal = place[idProp]
 const locationVal = place[locationProp]
 
+// these are the values of the properties
 console.log(idVal) // 129946109
 console.log(locationVal) // "HappyRoflLand
 ```
