@@ -253,3 +253,49 @@ Often you may want to to a test like this:
 - As a reminder, `--noEmit` runs the compiler to check the types but it doesn't generate target `js`
   files.
 - `tsc --watch` is an option but as of TypeScript 7.0 `tsc` is also an LSP which is even better.
+
+### `keyof` Operator
+
+<!-- prettier-ignore -->
+> [!NOTE]
+> Each item in a union type in TS is usually called a `key` or a `union member`.
+
+[keyof operator](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html)
+
+The `keyof` operator applied to a type `T` returns a union were each key is the name of a property.
+Because JavaScript is weird the names can be `string`, `number`, or a `symbol`.
+
+```ts
+interface Place {
+  id: number
+  location: string
+  latitude: number
+  longtitude: number
+}
+
+// placeProps = "id" | "location" | "latitude" | "longtitude"
+type placeProps = keyof Place
+
+// Properties
+const idProp: placeProps = "id"
+const locationProp: placeProps = "location"
+
+console.log(idProp) // number
+console.log(locationProp) // string
+
+// Concrete instance
+const place: Place = {
+  id: 129946109,
+  location: "HappyRoflLand",
+  latitude: 48.992,
+  longtitude: 89.112,
+}
+
+const idVal = place[idProp]
+const locationVal = place[locationProp]
+
+console.log(idVal) // 129946109
+console.log(locationVal) // "HappyRoflLand
+```
+
+There is more to it if you want to get more advanced. See the link above.
