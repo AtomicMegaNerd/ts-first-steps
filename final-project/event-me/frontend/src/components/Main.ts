@@ -1,9 +1,9 @@
-import { Events } from './Events';
+import { Events } from "./Events"
 
 const Main = `
 <main class="container">    
     ${Events}
   </main>
-`;
+`
 
-export default Main;
+export default Main
