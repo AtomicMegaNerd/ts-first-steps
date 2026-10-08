@@ -1,5 +1,5 @@
 [tools]
-node = "latest"
+node = "lts"
 oxfmt = "latest"
 oxlint = "latest"
 tombi = "latest"
