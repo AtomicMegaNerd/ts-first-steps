@@ -233,3 +233,23 @@ function fn(s) {
   console.log(s.subtr(3))
 }
 ```
+
+### Type-Checking Dev Workflow
+
+Often you may want to to a test like this:
+
+```json
+{
+  "scripts": {
+    "test": "tsc --noEmit & vitest"
+  }
+}
+```
+
+#### Notes
+
+- In Node `package.json` the `&` means the first command has to succeed before the second is
+  executed. So if `tsc` is not happy `vitest` does not run.
+- As a reminder, `--noEmit` runs the compiler to check the types but it doesn't generate target `js`
+  files.
+- `tsc --watch` is an option but as of TypeScript 7.0 `tsc` is also an LSP which is even better.

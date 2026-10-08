@@ -12,7 +12,6 @@ interface User extends HasId {
 }
 
 interface Event extends HasId {
-  id: Id
   host_id: Id
   date: Date
   title: string
