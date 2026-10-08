@@ -1,23 +1,28 @@
 # event-me
 
-All the events you never knew you needed to attend!
+<!-- prettier-ignore -->
+> [!NOTE]
+> Cloned from [EventMe Project Repo](https://github.com/vakila/event-me). I deleted git so
+> the solution branch is not included and can be cloned/checked separately.
 
+All the events you never knew you needed to attend!
 
 ## Overview
 
-This is a simple full-stack web project for educational purposes, to demonstrate the functionality and value of moving from JS to TS gradually.
+This is a simple full-stack web project for educational purposes, to demonstrate the functionality
+and value of moving from JS to TS gradually.
 
-It is part of Anjana's course [TypeScript First Steps](https://anjana.dev/typescript-first-steps) on [FrontendMasters](https://frontendmasters.com/teachers/anjana-vakil/).
+It is part of Anjana's course [TypeScript First Steps](https://anjana.dev/typescript-first-steps) on
+[FrontendMasters](https://frontendmasters.com/teachers/anjana-vakil/).
 
 ## Installation
 
-Make sure you have an up-to-date version of [Node](https://nodejs.org/en/download) installed, including [npm]
+Make sure you have an up-to-date version of [Node](https://nodejs.org/en/download) installed,
+including `npm`
 
-
-
-```
+```bash
 cd backend
-npm i 
+npm i
 cd ../frontend
 npm i
 ```
@@ -26,38 +31,38 @@ npm i
 
 Run the backend and frontend in separate terminals.
 
-1) Run the backend API
+### Run the backend API
 
 Install backend dependencies and launch the dev server:
 
-```
+```bash
 cd backend
 npm i
 npm run dev
 ```
 
-The API will be available at `http://localhost:3000/api`.
+- The API will be available at `http://localhost:3000/api`.
+- Leave the backend running in this terminal.
 
-Leave the backend running in this terminal.
-
-3) Run the frontend client
+### Run the frontend client
 
 In a _new_ terminal, install frontend dependencies and launch the dev server:
 
-
-```
+```bash
 cd frontend
 npm i
 npm run dev
 ```
 
-Open the app at `http://localhost:5173`.
-
-Leave the frontend running in this terminal.
-
+- Open the app at `http://localhost:5173`.
+- Leave the frontend running in this terminal.
 
 ## Branches
 
-The [`main`](https://github.com/vakila/event-me/tree/solution) branch contains the starting point for the course exercises, which involve migrating from JS to TS and fixing the app's (intentional) bugs in the process.
+The [main](https://github.com/vakila/event-me/tree/solution) branch contains the starting point for
+the course exercises, which involve migrating from JS to TS and fixing the app's (intentional) bugs
+in the process.
 
-The [`solution`](https://github.com/vakila/event-me/tree/solution) branch contains a reference solution for the workshop exercises. But there is more than one way to type a script, so your solution might differ!
+The [solution](https://github.com/vakila/event-me/tree/solution) branch contains a reference
+solution for the workshop exercises. But there is more than one way to type a script, so your
+solution might differ!

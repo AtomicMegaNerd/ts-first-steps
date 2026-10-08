@@ -8,7 +8,21 @@ This repository is for a [Typescript Course](https://anjana.dev/typescript-first
 
 ## Skills
 
-Always load and Use the `typescript-advanced-types` skill when helping me learn.
+- Always load and Use the `typescript-advanced-types` skill when helping me learn.
+
+## Tools
+
+The following tools are used in this project:
+
+- [mise](https://mise.jdx.dev)
+- [oxlint](https://oxc.rs/docs/guide/usage/linter)
+- [oxfmt](https://oxc.rs/docs/guide/usage/formatter.html)
+- [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
+- [pre-commit](https://github.com/pre-commit/pre-commit)
+- [nodejs](https://nodejs.org/en)
+- [npm](https://www.npmjs.com)
+
+All dev tooling is managed with mise see [mise.toml](./mise.toml)
 
 ## Rules
 

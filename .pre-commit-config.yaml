@@ -1,0 +1,20 @@
+repos:
+  - repo: local
+    hooks:
+      - id: oxfmt
+        name: oxfmt
+        language: system
+        entry: oxfmt
+        files: \.(md|mdx|ts|tsx|mts|cts|js|jsx|mjs|cjs|html|css)$
+
+      - id: oxlint
+        name: oxlint
+        language: system
+        entry: oxlint
+        files: \.(ts|tsx|mts|cts|js|jsx|mjs|cjs)$
+
+      - id: markdownlint-cli2
+        name: markdownlint-cli2
+        language: system
+        entry: markdownlint-cli2
+        types: [markdown]
