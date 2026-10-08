@@ -276,11 +276,9 @@ interface Place {
 // placeProps = "id" | "location" | "latitude" | "longtitude"
 type placeProps = keyof Place
 
-// Properties
+// These are the name of the properties
 const idProp: placeProps = "id"
 const locationProp: placeProps = "location"
-
-// These are the name of the properties
 console.log(idProp) // 'id'
 console.log(locationProp) // 'location'
 
@@ -292,10 +290,9 @@ const place: Place = {
   longtitude: 89.112,
 }
 
+// these are the values of the properties
 const idVal = place[idProp]
 const locationVal = place[locationProp]
-
-// these are the values of the properties
 console.log(idVal) // 129946109
 console.log(locationVal) // "HappyRoflLand
 ```
