@@ -19,12 +19,7 @@ interface Event extends HasId {
   description?: string
 }
 
-interface EventDetailsWithoutIds {
-  date: string
-  title: string
-  image_url?: string
-  description?: string
-}
+type EventDetailsWithoutIds = Omit<Event, "id" | "host_id">
 
 const EVENTS: Event[] = []
 const USERS: User[] = []
