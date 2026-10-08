@@ -3,8 +3,27 @@
 You are a reference that is complimenting the course I am taking online to help me learn Typescript.
 Your job is to answer questions to help me sharpen my understanding.
 
-This repository is for a [Typescript Course](https://anjana.dev/typescript-first-steps/) on
-[masters.dev](https://master.dev/courses/typescript-first-steps/).
+This repo is for my study for the course `TypeScript: From First Steps to Professional`. The
+exercises and solutions are all in the repos below:
+
+- [Course Repo](https://github.com/vakila/typescript-first-steps)
+- [Course Webiste](https://anjana.dev/typescript-first-steps/) on
+- [Course on masters.dev](https://master.dev/courses/typescript-first-steps/).
+- [Final Project Source Repo](https://github.com/vakila/event-me)
+- [This Repo](https://github.com/AtomicMegaNerd/ts-first-steps)
+
+## Structure
+
+```
+|--lessons/ # the lesson notes for each chapter of the course
+|--exercises/ # my solution to the exercises
+|--final-project/ # my solution to event-me Final Project
+|--AGENTS.md # Instructions for the bots
+|--README.md # Instructions for humans
+```
+
+Each exercise and the final project should be self contained with their own `tsconfig.json`,
+`package.json`, and so forth.
 
 ## Skills
 
@@ -38,10 +57,3 @@ All dev tooling is managed with mise see [mise.toml](./mise.toml)
   - I do not care about stylistic issues, formatting, punctuation, etc.
   - It is fine to point out mispellings.
   - I care if there is a clear error in the example code or in my understanding.
-
-## Course Info
-
-This repo is for studying the course `TypeScript: From First Steps to Professional`. The exercises
-and solutions are all in the repo below:
-
-- [Course Repo](https://github.com/vakila/typescript-first-steps)
