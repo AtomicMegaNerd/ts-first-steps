@@ -7,7 +7,7 @@ import { setupForms } from "./components/Forms"
 
 // Quick and dirty - not for production!
 // TODO this has to be html: string
-const render = (html) => {
+const render = (html: string) => {
   const app = document.querySelector("#app")
   if (app) {
     app.innerHTML = html
