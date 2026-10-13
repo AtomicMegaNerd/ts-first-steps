@@ -17,11 +17,9 @@ let visibleModal: HTMLDialogElement | null = null
 const toggleModal = (event: Event) => {
   event.preventDefault()
   const currTarget = event.currentTarget
-
   if (!(currTarget instanceof HTMLElement)) {
     return
   }
-
   const modelTarget = currTarget.dataset["target"]
   if (!modelTarget) {
     return

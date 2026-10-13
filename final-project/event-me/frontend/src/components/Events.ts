@@ -2,29 +2,38 @@ import { Calendar } from "./Icons.js"
 
 const API_URL = import.meta.env["VITE_API_URL"]
 
+type Id = number
+
 interface MyEvent {
-  id: number
-  host_id: number
+  id: Id
+  host_id: Id
   title: string
-  date: Date
+  date: string
   image_url?: string
   description?: string
   host?: MyEventHost
-  rsvps: [string]
+  rsvps?: Rsvp[]
   currentTarget?: HTMLFormElement
+}
+
+interface Rsvp {
+  event_id: Id
+  name: string
+  email: string
 }
 
 interface MyEventHost {
   name: string
 }
 
-const loadEventsData = async () => {
+const loadEventsData = async (): Promise<MyEvent[]> => {
   try {
     const response = await fetch(`${API_URL}/events`)
     return response.json()
   } catch (e) {
     console.error(e)
   }
+  return []
 }
 
 export const EventModal = (event: MyEvent): string => {
@@ -101,7 +110,7 @@ export const EventCard = (e: MyEvent): string => {
     `
 }
 
-export const EventsSection = (title: string, events: [MyEvent]) => {
+export const EventsSection = (title: string, events: MyEvent[]) => {
   return `
   <section class='events'>
       <h2>${title} events </h2>
@@ -114,7 +123,7 @@ export const EventsSection = (title: string, events: [MyEvent]) => {
 // IIFE to asynchronously load the Event data before exporting the component
 // https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 export const Events = await (async () => {
-  const all = await loadEventsData()
+  const all: MyEvent[] = await loadEventsData()
   const past = all.filter((e: MyEvent) => new Date(e.date) < new Date())
   const upcoming = all.filter((e: MyEvent) => new Date(e.date) > new Date())
   return `

@@ -1,7 +1,7 @@
 import { Events } from "./Events"
 
 const Main = `
-<main class="container">    
+<main class="container">
     ${Events}
   </main>
 `
