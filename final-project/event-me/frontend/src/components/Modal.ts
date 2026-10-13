@@ -11,18 +11,34 @@ const openingClass = "modal-is-opening"
 const closingClass = "modal-is-closing"
 const scrollbarWidthCssVar = "--pico-scrollbar-width"
 const animationDuration = 400 // ms
-let visibleModal = null
+let visibleModal: HTMLDialogElement | null = null
 
 // Toggle modal
-const toggleModal = (event) => {
+const toggleModal = (event: Event) => {
   event.preventDefault()
-  const modal = document.getElementById(event.currentTarget.dataset.target)
-  if (!modal) return
-  modal && (modal.open ? closeModal(modal) : openModal(modal))
+  const currTarget = event.currentTarget
+
+  if (!(currTarget instanceof HTMLElement)) {
+    return
+  }
+
+  const modelTarget = currTarget.dataset["target"]
+  if (!modelTarget) {
+    return
+  }
+  const modal = document.getElementById(modelTarget)
+  if (!(modal instanceof HTMLDialogElement)) {
+    return
+  }
+  if (modal.open) {
+    closeModal(modal)
+  } else {
+    openModal(modal)
+  }
 }
 
 // Open modal
-const openModal = (modal) => {
+const openModal = (modal: HTMLDialogElement) => {
   const { documentElement: html } = document
   const scrollbarWidth = getScrollbarWidth()
   if (scrollbarWidth) {
@@ -37,7 +53,7 @@ const openModal = (modal) => {
 }
 
 // Close modal
-const closeModal = (modal) => {
+const closeModal = (modal: HTMLDialogElement) => {
   visibleModal = null
   const { documentElement: html } = document
   html.classList.add(closingClass)
@@ -49,11 +65,21 @@ const closeModal = (modal) => {
 }
 
 // Close with a click outside
-document.addEventListener("click", (event) => {
-  if (visibleModal === null) return
+document.addEventListener("click", (event: Event) => {
+  if (!visibleModal) {
+    return
+  }
   const modalContent = visibleModal.querySelector("article")
+  if (!modalContent) {
+    return
+  }
+  if (!(event.target instanceof Node)) {
+    return
+  }
   const isClickInside = modalContent.contains(event.target)
-  !isClickInside && closeModal(visibleModal)
+  if (!isClickInside) {
+    closeModal(visibleModal)
+  }
 })
 
 // Close with Esc key

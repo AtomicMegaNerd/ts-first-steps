@@ -16,9 +16,12 @@ const Header = `
 
 const toggleDarkMode = () => {
   const doc = document.documentElement
-  const currentTheme = doc.getAttribute("data-theme")
+
+  // TODO: Revisit this
+  type Theme = "light" | "dark"
+  const currentTheme = doc.getAttribute("data-theme") as Theme
+
   if (currentTheme === "dark") {
-    // TODO: Make the themes a literal type
     doc.setAttribute("data-theme", "light")
   } else if (currentTheme === "light") {
     doc.setAttribute("data-theme", "dark")
@@ -26,7 +29,9 @@ const toggleDarkMode = () => {
 }
 export function setupThemeToggle() {
   const themeToggle = document.getElementById(themeToggleId)
-  themeToggle.addEventListener("click", toggleDarkMode)
+  if (themeToggle) {
+    themeToggle.addEventListener("click", toggleDarkMode)
+  }
 }
 
 export default Header

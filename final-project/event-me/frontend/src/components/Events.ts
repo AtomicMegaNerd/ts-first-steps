@@ -1,6 +1,22 @@
 import { Calendar } from "./Icons.js"
 
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = import.meta.env["VITE_API_URL"]
+
+interface MyEvent {
+  id: number
+  host_id: number
+  title: string
+  date: Date
+  image_url?: string
+  description?: string
+  host?: MyEventHost
+  rsvps: [string]
+  currentTarget?: HTMLFormElement
+}
+
+interface MyEventHost {
+  name: string
+}
 
 const loadEventsData = async () => {
   try {
@@ -11,7 +27,7 @@ const loadEventsData = async () => {
   }
 }
 
-export const EventModal = (event) => {
+export const EventModal = (event: MyEvent): string => {
   const formId = `rsvp-form-${event.id}`
   const modalId = `modal-event-${event.id}`
   return `<dialog id="${modalId}">
@@ -51,20 +67,19 @@ export const EventModal = (event) => {
     </dialog>`
 }
 
-export const EventCard = (e) => {
+export const EventCard = (e: MyEvent): string => {
   const eventDate = new Date(e.date)
   const isPast = eventDate < new Date()
   return `
 <article class="event" >
 <header>
-    ${e.image_url && `<img src=${e.image_url} alt="${e.title} thumbnail" />`}
+    ${e.image_url === undefined ? "" : `<img src=${e.image_url} alt="${e.title} thumbnail" />`}
 </header>
     <main>
         <h4>${e.title}</h4>
         <p>${Calendar} ${eventDate.toLocaleDateString()}</p>
         <p>Host: ${e.host?.name || `User ${e.host_id}`}</p>
-
-        ${e.description ?? `<p>${e.description}</p>`}
+        ${e.description === undefined ? "" : `<p>${e.description}</p>`}
     </main>
     <footer>
         <span>
@@ -86,7 +101,7 @@ export const EventCard = (e) => {
     `
 }
 
-export const EventsSection = (title, events) => {
+export const EventsSection = (title: string, events: [MyEvent]) => {
   return `
   <section class='events'>
       <h2>${title} events </h2>
@@ -100,8 +115,8 @@ export const EventsSection = (title, events) => {
 // https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 export const Events = await (async () => {
   const all = await loadEventsData()
-  const past = all.filter((e) => new Date(e.date) < new Date())
-  const upcoming = all.filter((e) => new Date(e.date) > new Date())
+  const past = all.filter((e: MyEvent) => new Date(e.date) < new Date())
+  const upcoming = all.filter((e: MyEvent) => new Date(e.date) > new Date())
   return `
     ${EventsSection("Upcoming", upcoming)}
     ${EventsSection("Past", past)}
