@@ -2,7 +2,7 @@ import { Calendar } from "./Icons.js"
 
 const API_URL = import.meta.env["VITE_API_URL"]
 
-type Id = number
+type Id = number | string
 
 interface MyEvent {
   id: Id
