@@ -21,6 +21,7 @@ router.post("/new", (req, res): void => {
   const vals = Object.values(data).join(" , ")
   const insertUser = db.prepare(`INSERT INTO users(@cols) VALUES (@vals)`)
   const { lastInsertRowid: id } = insertUser.run({ cols, vals })
+  // NOTE: This may not be ideal if id is really large...
   const user = getUser(Number(id))
   res.json(user)
 })

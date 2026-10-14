@@ -93,4 +93,18 @@ const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement
 You can only assert as a more specific type you can't use this to cast from one unrelated type to
 another.
 
+## Spread syntax `...`
+
+[Spread Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+## Type Safety
+
+We can be sure that as data flows through our program, the types all check out. This eliminates many
+preventable problems and errors.
+
+End to end type safety means sharing the same types between the frontend and the backend. This is
+out of scope for this course.
+
+Check out [Zod](https://zod.dev).
+
 [^1]: or whatever specific node version you are using.

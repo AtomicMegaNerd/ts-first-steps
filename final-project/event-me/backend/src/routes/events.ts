@@ -12,19 +12,16 @@ const joinHost = (event: MyEvent): MyEvent => {
 
 const joinRSVPs = (event: MyEvent): MyEvent => {
   const { id } = event
-  const getRSVPs = db.prepare<{ id: Id }, Rsvp>("SELECT * FROM rsvps WHERE event_id = @id")
-  const rsvps = getRSVPs.all({ id })
+  const getRSVPs = db.prepare("SELECT * FROM rsvps WHERE event_id = @id")
+  const rsvps = getRSVPs.all({ id }) as Rsvp[]
   return { ...event, rsvps }
 }
 
-const getEvent = (eventId: Id): MyEvent | undefined => {
+const getEvent = (eventId: Id): MyEvent => {
   const byId = db.prepare("SELECT * FROM events WHERE id = @eventId")
   // We know that this will be a MyEvent type so use a type assertion
   const event = byId.get({ eventId }) as MyEvent
-  if (event) {
-    return joinHost(event)
-  }
-  return event
+  return joinHost(event)
 }
 
 router.get("/", (_req, res): void => {
