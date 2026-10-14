@@ -8,10 +8,10 @@ interface MyEvent {
   id: Id
   host_id: Id
   title: string
-  date: string
+  date: Date
   image_url?: string
   description?: string
-  host?: MyEventHost
+  host?: User
   rsvps?: Rsvp[]
   currentTarget?: HTMLFormElement
 }
@@ -22,16 +22,48 @@ interface Rsvp {
   email: string
 }
 
-interface MyEventHost {
+interface User {
+  id: Id
   name: string
+  username: string
+  email: string
 }
+
+/*
+Can also do this (use literal types):
+
+interface MyEvent {
+  id: Id
+  host_id: Id
+  title: string
+  date: string
+  image_url?: string
+  description?: string
+  host?: {
+    id: Id
+    name: string
+    username: string
+    email: string
+  }
+  rsvps?: {
+    event_id: Id
+    name: string
+    email: string
+  }[]
+  currentTarget?: HTMLFormElement
+}
+*/
 
 const loadEventsData = async (): Promise<MyEvent[]> => {
   try {
     const response = await fetch(`${API_URL}/events`)
     return response.json()
-  } catch (e) {
-    console.error(e)
+  }
+  // `err` shows up as the `unknown` type, this is not the same as the `any` type.
+  // Unlike `any` which turns off type checking, `unknown` makes us check the resulting type
+  // we actually get before using it
+  catch (err) {
+    console.error(err)
   }
   return []
 }
