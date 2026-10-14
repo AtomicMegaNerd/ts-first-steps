@@ -8,6 +8,7 @@ export const setupForm = (form: HTMLFormElement): void => {
   const url = `${API_URL}/events/${eventId}/rsvp`
   const btn = document.getElementById(`submit-${form.id}`)
 
+  // This function has a Promise<void> return type :-P
   async function sendData(form: HTMLFormElement) {
     const formData = new FormData(form)
     const encoded = new URLSearchParams()

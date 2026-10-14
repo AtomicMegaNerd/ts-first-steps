@@ -114,13 +114,13 @@ export const EventCard = (e: MyEvent): string => {
   return `
 <article class="event" >
 <header>
-    ${e.image_url === undefined ? "" : `<img src=${e.image_url} alt="${e.title} thumbnail" />`}
+    ${e.image_url ? `<img src=${e.image_url} alt="${e.title} thumbnail" />` : ""}
 </header>
     <main>
         <h4>${e.title}</h4>
         <p>${Calendar} ${eventDate.toLocaleDateString()}</p>
         <p>Host: ${e.host?.name || `User ${e.host_id}`}</p>
-        ${e.description === undefined ? "" : `<p>${e.description}</p>`}
+        ${e.description ? `<p>${e.description}</p>` : ""}
     </main>
     <footer>
         <span>

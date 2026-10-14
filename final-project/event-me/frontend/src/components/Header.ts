@@ -14,24 +14,22 @@ const Header = `
 </header>
 `
 
+type Theme = "light" | "dark" | null
+
 const toggleDarkMode = () => {
   const doc = document.documentElement
-
-  // TODO: Revisit this
-  type Theme = "light" | "dark"
   const currentTheme = doc.getAttribute("data-theme") as Theme
-
   if (currentTheme === "dark") {
     doc.setAttribute("data-theme", "light")
   } else if (currentTheme === "light") {
     doc.setAttribute("data-theme", "dark")
   }
 }
+
 export function setupThemeToggle() {
   const themeToggle = document.getElementById(themeToggleId)
-  if (themeToggle) {
-    themeToggle.addEventListener("click", toggleDarkMode)
-  }
+  themeToggle?.addEventListener("click", toggleDarkMode)
 }
 
+// What does this mean I wonder?
 export default Header

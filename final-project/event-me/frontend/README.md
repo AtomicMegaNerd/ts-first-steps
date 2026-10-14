@@ -14,13 +14,13 @@ See
 
 However there is a shortcut.
 
-## `tsconfig` Bases
+### `tsconfig` Bases
 
 These are ready made config options:
 
 [tsconfig bases repo](https://github.com/tsconfig/bases)
 
-### Install
+#### Install
 
 ```bash
 npm i -D @tsconfig/recommended
@@ -37,7 +37,7 @@ Add this to our `tsconfig.json` file:
 
 I also had to remove the modules, target, etc. sections.
 
-## Show Final `tsc` Config
+### Show Final `tsc` Config
 
 You can show the actual active config with the following command:
 
@@ -45,7 +45,7 @@ You can show the actual active config with the following command:
 tsc --showConfig | bat -l json
 ```
 
-## Pointing `tsc` to Vite Types
+### Pointing `tsc` to Vite Types
 
 We can add sources for additional libraries to our `tsconfig.json` config.
 
@@ -57,7 +57,21 @@ See [Vite Env Vars and Modes](https://vite.dev/guide/env-and-mode).
 }
 ```
 
-## `unknown` Type
+### Telling TypeScript about DOM-related types
+
+Add entries as needed to the `lib` property under `compilerOptions`:
+
+```json
+{
+  "compilerOptions": {
+    "lib": ["es2023", "dom"]
+  }
+}
+```
+
+## Additional Information on new TypeScript Concepts
+
+### `unknown` Type
 
 [unknown type](https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown)
 
@@ -85,7 +99,7 @@ const loadEventsData = async (): Promise<MyEvent[]> => {
 }
 ```
 
-## `never` Type
+### `never` Type
 
 [never type](https://www.typescriptlang.org/docs/handbook/2/functions.html#never)
 
