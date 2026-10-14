@@ -1,10 +1,11 @@
 import { Router } from "express"
 import db from "../db.js"
+import type { Id, User } from "./types.ts"
 
 const router = Router()
 
-export const getUser = (userId) => {
-  const byId = db.prepare("SELECT * FROM users WHERE id = @userId")
+export const getUser = (userId: Id): User | undefined => {
+  const byId = db.prepare<{ userId: Id }, User>("SELECT * FROM users WHERE id = @userId")
   return byId.get({ userId })
 }
 
@@ -20,7 +21,7 @@ router.post("/new", (req, res) => {
   const vals = Object.values(data).join(" , ")
   const insertUser = db.prepare(`INSERT INTO users(@cols) VALUES (@vals)`)
   const { lastInsertRowid: id } = insertUser.run({ cols, vals })
-  const user = getUser(id)
+  const user = getUser(Number(id))
   res.json(user)
 })
 

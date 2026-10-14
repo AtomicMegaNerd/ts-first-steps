@@ -1,30 +1,34 @@
 import db from "../db.js"
 import { Router } from "express"
-import { getUser } from "./users.js"
+import { getUser } from "./users.ts"
+import type { MyEvent, Id, Rsvp } from "./types.ts"
 
 const router = Router()
 
-const joinHost = (event) => {
+const joinHost = (event: MyEvent): MyEvent => {
   const host = getUser(event.host_id)
   return { ...event, host }
 }
 
-const joinRSVPs = (event) => {
+const joinRSVPs = (event: MyEvent): MyEvent => {
   const { id } = event
-  const getRSVPs = db.prepare("SELECT * FROM rsvps WHERE event_id = @id")
+  const getRSVPs = db.prepare<{ id: Id }, Rsvp>("SELECT * FROM rsvps WHERE event_id = @id")
   const rsvps = getRSVPs.all({ id })
   return { ...event, rsvps }
 }
 
-const getEvent = (eventId) => {
-  const byId = db.prepare("SELECT * FROM events WHERE id = @eventId")
+const getEvent = (eventId: Id): MyEvent | undefined => {
+  const byId = db.prepare<{ eventId: Id }, MyEvent>("SELECT * FROM events WHERE id = @eventId")
   const event = byId.get({ eventId })
-  return joinHost(event)
+  if (event) {
+    return joinHost(event)
+  }
+  return event
 }
 
-router.get("/", (_req, res) => {
-  const listEvents = db.prepare(`SELECT * FROM events`)
-  const events = listEvents.all()
+router.get("/", (_req, res): void => {
+  const listEvents = db.prepare<[], MyEvent>(`SELECT * FROM events`)
+  const events: MyEvent[] = listEvents.all()
   res.json(events.map(joinHost).map(joinRSVPs))
 })
 
@@ -35,7 +39,7 @@ const insertEvent = db.prepare(
 router.post("/new", (req, res) => {
   const data = req.body
   const { lastInsertRowid: id } = insertEvent.run(data)
-  const event = getEvent(id)
+  const event = getEvent(Number(id))
   res.status(201).json(event)
 })
 
