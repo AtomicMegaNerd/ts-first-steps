@@ -4,5 +4,7 @@
     "@tsconfig/node24/tsconfig.json",
     "@tsconfig/node-ts/tsconfig.json"
   ],
-  "compilerOptions": {}
+  "compilerOptions": {
+    "noEmit": true
+  }
 }

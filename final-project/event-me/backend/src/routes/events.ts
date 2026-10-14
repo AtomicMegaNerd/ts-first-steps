@@ -1,4 +1,4 @@
-import db from "../db.js"
+import db from "../db.ts"
 import { Router } from "express"
 import { getUser } from "./users.ts"
 import type { MyEvent, Id, Rsvp } from "./types.ts"

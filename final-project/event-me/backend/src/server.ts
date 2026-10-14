@@ -4,7 +4,7 @@ import logger from "morgan"
 import cors from "cors"
 import helmet from "helmet"
 
-import apiRouter from "./routes/api.js"
+import apiRouter from "./routes/api.ts"
 
 const PORT = process.env.PORT || 3000
 const NODE_ENV = process.env.NODE_ENV || "development"

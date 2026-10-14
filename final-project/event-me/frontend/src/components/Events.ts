@@ -13,7 +13,6 @@ interface MyEvent {
   description?: string
   host?: User
   rsvps?: Rsvp[]
-  currentTarget?: HTMLFormElement
 }
 
 interface Rsvp {
