@@ -5,7 +5,7 @@ export interface MyEvent {
   id: Id
   host_id: Id
   title: string
-  date: Date
+  date: string
   image_url?: string
   description?: string
   host?: User

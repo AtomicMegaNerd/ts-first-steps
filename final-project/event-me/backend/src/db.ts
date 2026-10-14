@@ -2,6 +2,7 @@ import Database from "better-sqlite3"
 import EVENTS from "./data/events.json" with { type: "json" }
 import USERS from "./data/users.json" with { type: "json" }
 import RSVPS from "./data/rsvps.json" with { type: "json" }
+import type { MyEvent, Rsvp, User } from "./types.ts"
 
 const db = new Database("src/sqlite.db", { verbose: console.log })
 
@@ -29,19 +30,19 @@ db.exec(`
           CREATE INDEX IF NOT EXISTS eventhosts ON events(host_id);
           `)
 
-const upsertUser = db.prepare(`
+const upsertUser = db.prepare<User>(`
     INSERT INTO users VALUES (@id, @username, @name, @email)
     ON CONFLICT(id) DO NOTHING
     `)
 
-USERS.map((user) => upsertUser.run(user))
+USERS.map((user: User) => upsertUser.run(user))
 
-const upsertEvent = db.prepare(`
+const upsertEvent = db.prepare<MyEvent>(`
     INSERT INTO events VALUES (@id, @title, @description, @image_url, @date, @host_id)
     ON CONFLICT(id) DO NOTHING
     `)
 
-EVENTS.map((event) => {
+EVENTS.map((event: MyEvent) => {
   upsertEvent.run(event)
 })
 
@@ -55,10 +56,10 @@ db.exec(`
     CREATE INDEX IF NOT EXISTS rsvpevents ON rsvps(event_id);
 `)
 
-const upsertRSVP = db.prepare(`
+const upsertRSVP = db.prepare<Rsvp>(`
     INSERT INTO rsvps VALUES (@event_id, @name, @email)
 `)
-RSVPS.map((rsvp) => {
+RSVPS.map((rsvp: Rsvp) => {
   upsertRSVP.run(rsvp)
 })
 
