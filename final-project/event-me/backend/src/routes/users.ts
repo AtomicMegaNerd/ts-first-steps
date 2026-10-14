@@ -4,18 +4,18 @@ import type { Id, User } from "../types.ts"
 
 const router = Router()
 
-export const getUser = (userId: Id): User | undefined => {
-  const byId = db.prepare<{ userId: Id }, User>("SELECT * FROM users WHERE id = @userId")
-  return byId.get({ userId })
+export const getUser = (userId: Id): User => {
+  const byId = db.prepare("SELECT * FROM users WHERE id = @userId")
+  return byId.get({ userId }) as User
 }
 
-router.get("/", (_req, res) => {
+router.get("/", (_req, res): void => {
   const listUsers = db.prepare(`SELECT * FROM users`)
-  const users = listUsers.all()
+  const users = listUsers.all() as User[]
   res.json(users)
 })
 
-router.post("/new", (req, res) => {
+router.post("/new", (req, res): void => {
   const data = req.body
   const cols = Object.keys(data).join(" , ")
   const vals = Object.values(data).join(" , ")

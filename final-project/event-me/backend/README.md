@@ -63,7 +63,6 @@ import { type MyEvent, type Id, type Rsvp } from "../types.ts"
 This is a thing:
 
 ```ts
-
 export interface User {
   id: number
   name: string
@@ -80,6 +79,18 @@ const PrintId(userID: User["id"]) {
 }
 ```
 
-## Better-SQLite 3 Notes
+## Type Assertions
+
+[Type Assertions](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions)
+
+If I know more about a type than TS does I can use a Type Assertion to force TypeScript to regard
+the object as the specified type. These assertions are removed at compile time.
+
+```ts
+const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement
+```
+
+You can only assert as a more specific type you can't use this to cast from one unrelated type to
+another.
 
 [^1]: or whatever specific node version you are using.

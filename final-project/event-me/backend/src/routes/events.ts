@@ -18,8 +18,9 @@ const joinRSVPs = (event: MyEvent): MyEvent => {
 }
 
 const getEvent = (eventId: Id): MyEvent | undefined => {
-  const byId = db.prepare<{ eventId: Id }, MyEvent>("SELECT * FROM events WHERE id = @eventId")
-  const event = byId.get({ eventId })
+  const byId = db.prepare("SELECT * FROM events WHERE id = @eventId")
+  // We know that this will be a MyEvent type so use a type assertion
+  const event = byId.get({ eventId }) as MyEvent
   if (event) {
     return joinHost(event)
   }
@@ -27,8 +28,8 @@ const getEvent = (eventId: Id): MyEvent | undefined => {
 }
 
 router.get("/", (_req, res): void => {
-  const listEvents = db.prepare<[], MyEvent>(`SELECT * FROM events`)
-  const events: MyEvent[] = listEvents.all()
+  const listEvents = db.prepare(`SELECT * FROM events`)
+  const events: MyEvent[] = listEvents.all() as MyEvent[]
   res.json(events.map(joinHost).map(joinRSVPs))
 })
 
