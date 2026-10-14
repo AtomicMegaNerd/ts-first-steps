@@ -18,6 +18,7 @@
     "scripts": "^0.1.0"
   },
   "devDependencies": {
+    "@tsconfig/node-lts": "^24.0.1",
     "@tsconfig/node-ts": "^23.6.4",
     "@tsconfig/node24": "^24.0.5",
     "@tsconfig/recommended": "^1.0.13",
