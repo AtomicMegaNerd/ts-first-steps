@@ -1,6 +1,7 @@
 const API_URL = import.meta.env["VITE_API_URL"]
 
-export const setupForm = (form: HTMLFormElement) => {
+// `void` is what you expect... tell TS we should not get any return values here.
+export const setupForm = (form: HTMLFormElement): void => {
   if (!form) return
 
   const eventId = form.id.replace("rsvp-form-", "")
@@ -59,6 +60,8 @@ export const setupForm = (form: HTMLFormElement) => {
 }
 
 export const setupForms = () => {
+  // Do a shift-K on querySelectorAll to get the type of the Element we get back.
+  // In this case `HTMLFormElement`
   const rsvpForms = document.querySelectorAll("form")
   if (!rsvpForms) return
   for (let form of rsvpForms) {
