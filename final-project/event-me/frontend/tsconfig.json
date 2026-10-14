@@ -1,6 +1,5 @@
 {
   "extends": ["@tsconfig/recommended/tsconfig.json", "@tsconfig/vite-react/tsconfig.json"],
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     "types": ["vite/client"]
   }
