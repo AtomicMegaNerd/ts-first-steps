@@ -1,7 +1,7 @@
 import db from "../db.ts"
 import { Router } from "express"
 import { getUser } from "./users.ts"
-import type { MyEvent, Id, Rsvp } from "./types.ts"
+import type { MyEvent, Id, Rsvp } from "../types.ts"
 
 const router = Router()
 
