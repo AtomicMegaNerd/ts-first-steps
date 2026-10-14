@@ -1,4 +1,4 @@
-import * as Icons from "./Icons.js"
+import * as Icons from "./Icons"
 
 const Footer = `
 <footer>

@@ -36,3 +36,23 @@ Add this to our `tsconfig.json` file:
 ```
 
 I also had to remove the modules, target, etc. sections.
+
+## Show Final `tsc` Config
+
+You can show the actual active config with the following command:
+
+```bash
+tsc --showConfig | bat -l json
+```
+
+## Pointing `tsc` to Vite Types
+
+We can add sources for additional libraries to our `tsconfig.json` config.
+
+See [Vite Env Vars and Modes](https://vite.dev/guide/env-and-mode).
+
+```json
+{
+  "types": ["vite/client"]
+}
+```
